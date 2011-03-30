@@ -51,3 +51,4 @@ set backupcopy=yes
 
 "php syntax check
 map <F6> :w !php -l<CR>
+nnoremap <silent> <F5> :NERDTree<CR>

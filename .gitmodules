@@ -1,0 +1,21 @@
+[submodule "bundle/fugitive"]
+	path = bundle/fugitive
+	url = http://github.com/tpope/vim-fugitive.git
+[submodule "tComment"]
+	path = tComment
+	url = https://github.com/vim-scripts/tComment.git
+[submodule "vim-autoclose"]
+	path = vim-autoclose
+	url = https://github.com/Townk/vim-autoclose.git
+[submodule "supertab"]
+	path = supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "bundle/surround"]
+	path = bundle/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/matchit"]
+	path = bundle/matchit
+	url = https://github.com/vim-scripts/matchit.zip.git
