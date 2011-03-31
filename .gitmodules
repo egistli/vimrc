@@ -1,14 +1,14 @@
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = http://github.com/tpope/vim-fugitive.git
-[submodule "tComment"]
-	path = tComment
+[submodule "bundle/tComment"]
+	path = bundle/tComment
 	url = https://github.com/vim-scripts/tComment.git
-[submodule "vim-autoclose"]
-	path = vim-autoclose
+[submodule "bundle/vim-autoclose"]
+	path = bundle/vim-autoclose
 	url = https://github.com/Townk/vim-autoclose.git
-[submodule "supertab"]
-	path = supertab
+[submodule "bundle/supertab"]
+	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree

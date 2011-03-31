@@ -1,54 +1,85 @@
-"Start pathogen
+"Load pathogen
 filetype off
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
-:colorscheme desert
-syntax enable
-syntax on
-set vb t_vb=
-set ru
-set nu
-set incsearch
-set hlsearch
-set ts=8
-set sts=4
-set sw=4
-set autoindent
-set bs=2
-set ls=2
-set nocp
+"Enable filetype
+filetype on
+filetype indent on
 filetype plugin on
-set cursorline
-set cursorcolumn 
-"highlight cursorline cterm=none ctermbg=lightblue ctermfg=none
+set nocompatible
 
-set winminheight=0
-set winheight=30
-
-set foldmarker={{{,}}}
-set foldmethod=marker
-set foldlevel=0
-
-" :help console-menus
-source $VIMRUNTIME/menu.vim
+"Enhance tab completion
 set wildmenu
-set cpo-=<
-set wcm=<C-Z>
-:map <F4> :emenu <C-Z>
 
-"set grepprg=global\ -t
-"set grepformat=%m\	%f\	%l
-
-:set sidescroll=10
-:set scrolljump=10
-:set listchars+=precedes:<,extends:>
-":set nowrap
+"Set encodings
+set fenc=utf-8
 set encoding=utf-8
 set termencoding=utf-8
 set fileencodings=utf-8,big5,gbk,euc-jp,euc-kr,utf-bom,iso8859-1
+
+"Ensure backup
 set backupcopy=yes
 
-"php syntax check
-map <F6> :w !php -l<CR>
+"Setup Display Preference
+:colorscheme desert
+syntax on
+set showmatch
+set ruler
+set autoread
+set nu
+set cursorline
+set cursorcolumn 
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set smarttab
+
+set autoindent
+set copyindent
+set ts=4
+set sts=2
+set sw=2
+set bs=2
+set ls=2
+
+"Set minimum window height
+set winminheight=0
+set winheight=30
+
+:set sidescroll=10
+:set scrolljump=10
+
+"Setup Helpful Commands
+nnoremap <F6> :w !php -l<CR>
 nnoremap <silent> <F5> :NERDTree<CR>
+
+"Fix arrowkeys problem caused by Autoclose
+set term=linux
+imap OA <ESC>ki
+imap OB <ESC>ji
+imap OC <ESC>li
+imap OD <ESC>hi
+
+" Status line { //from vgod
+ set laststatus=2
+ set statusline=\ %{HasPaste()}%<%-15.40(%F%)%m%r%h\ %w\ \ 
+ set statusline+=\ \ \ [%{&ff}/%Y] 
+ set statusline+=\ \ \ %<%20.30(%{hostname()}:%{CurDir()}%)\ 
+ set statusline+=%=%-14.(%l,%c%V%)\ %p%%/%L
+
+ function! CurDir()
+     let curdir = substitute(getcwd(), $HOME, "~", "")
+    return curdir
+  endfunction
+
+  function! HasPaste()
+	if &paste
+	  return '[PASTE]'
+	else
+	  return ''
+	endif
+  endfunction
+
+"}
