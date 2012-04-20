@@ -52,15 +52,16 @@ set winheight=30
 :set scrolljump=10
 
 "Setup Helpful Commands
+nnoremap <F7> :w <CR> :!sh ~/Scripts/rsync_admin.sh <CR>
 nnoremap <F6> :w !php -l<CR>
 nnoremap <silent> <F5> :NERDTree<CR>
 
 "Fix arrowkeys problem caused by Autoclose
 set term=linux
-imap OA <ESC>ki
-imap OB <ESC>ji
-imap OC <ESC>li
-imap OD <ESC>hi
+imap OA <ESC>ki
+imap OB <ESC>ji
+imap OC <ESC>li
+imap OD <ESC>hi
 
 " Status line { //from vgod
  set laststatus=2
@@ -83,3 +84,5 @@ imap OD <ESC>hi
   endfunction
 
 "}
+
+set autochdir
