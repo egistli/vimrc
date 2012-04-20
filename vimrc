@@ -68,6 +68,12 @@ imap OC <ESC>li
 imap OD <ESC>hi
 
 " Auto open
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 
+" Powerline
 let g:Powerline_symbols = 'fancy'
+
+" Setup BufWritePost events for rsync yo
+autocmd BufWritePost ~/Works/yo/* silent !~/Scripts/yo_sync_dev.sh
+
+let g:yankring_manual_clipboard_check=1 
