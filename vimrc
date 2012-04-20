@@ -22,8 +22,9 @@ set fileencodings=utf-8,big5,gbk,euc-jp,euc-kr,utf-bom,iso8859-1
 set backupcopy=yes
 
 "Setup Display Preference
-:colorscheme desert
-syntax on
+syntax enable
+set background=dark
+colorscheme solarized
 set showmatch
 set ruler
 set autoread
@@ -38,10 +39,10 @@ set smarttab
 
 set autoindent
 set copyindent
-set ts=4
-set sts=2
-set sw=2
-set bs=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set backspace=2
 set ls=2
 
 "Set minimum window height
@@ -52,37 +53,21 @@ set winheight=30
 :set scrolljump=10
 
 "Setup Helpful Commands
-nnoremap <F7> :w <CR> :!sh ~/Scripts/rsync_admin.sh <CR>
 nnoremap <F6> :w !php -l<CR>
 nnoremap <silent> <F5> :NERDTree<CR>
+"Tab Control
+nnoremap H :tabprev <CR>
+nnoremap L :tabnext <CR>
+
 
 "Fix arrowkeys problem caused by Autoclose
 set term=linux
-imap OA <ESC>ki
-imap OB <ESC>ji
-imap OC <ESC>li
-imap OD <ESC>hi
+imap OA <ESC>ki
+imap OB <ESC>ji
+imap OC <ESC>li
+imap OD <ESC>hi
 
-" Status line { //from vgod
- set laststatus=2
- set statusline=\ %{HasPaste()}%<%-15.40(%F%)%m%r%h\ %w\ \ 
- set statusline+=\ \ \ [%{&ff}/%Y] 
- set statusline+=\ \ \ %<%20.30(%{hostname()}:%{CurDir()}%)\ 
- set statusline+=%=%-14.(%l,%c%V%)\ %p%%/%L
+" Auto open
+autocmd VimEnter * NERDTree
 
- function! CurDir()
-     let curdir = substitute(getcwd(), $HOME, "~", "")
-    return curdir
-  endfunction
-
-  function! HasPaste()
-	if &paste
-	  return '[PASTE]'
-	else
-	  return ''
-	endif
-  endfunction
-
-"}
-
-set autochdir
+let g:Powerline_symbols = 'fancy'
