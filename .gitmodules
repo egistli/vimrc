@@ -40,3 +40,6 @@
 [submodule "bundle/snipMate"]
 	path = bundle/snipMate
 	url = https://github.com/vim-scripts/snipMate.git
+[submodule "bundle/easymotion"]
+	path = bundle/easymotion
+	url = https://github.com/Lokaltog/vim-easymotion

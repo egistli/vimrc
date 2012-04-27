@@ -52,13 +52,8 @@ set winheight=30
 :set sidescroll=10
 :set scrolljump=10
 
-"Setup Helpful Commands
-nnoremap <F6> :w !php -l<CR>
-nnoremap <silent> <F5> :NERDTree<CR>
-"Tab Control
-nnoremap H :tabprev <CR>
-nnoremap L :tabnext <CR>
-
+" hide search hightlight on ESC
+nnoremap <ESC> :noh<CR><ESC>
 
 "Fix arrowkeys problem caused by Autoclose
 set term=linux
@@ -67,13 +62,32 @@ imap OB <ESC>ji
 imap OC <ESC>li
 imap OD <ESC>hi
 
-" Auto open
-" autocmd VimEnter * NERDTree
+"Tab Control
+nnoremap H :tabprev <CR>
+nnoremap L :tabnext <CR>
 
-" Powerline
+" Plugins global vars
 let g:Powerline_symbols = 'fancy'
+let g:yankring_manual_clipboard_check=1 
+let g:EasyMotion_leader_key = ','
 
+" Setup Helpful Commands
+nnoremap <F5> :NERDTree<CR>
+nnoremap <F6> :w !php -l<CR>
+nnoremap <F7> :!svn diff % > ~/Desktop/%:t.diff<CR>
+nnoremap <F8> :cd %:p:h<CR> :!svn diff . > ~/Desktop/dir.diff<CR>
+nnoremap <D-r> :MRU<CR>
+
+" Setup Shortcuts for cd
+nnoremap <Leader>1 :NERDTree<CR> <C-w>h :cd ~/Works/yo/modules/tvl_info/ <CR> :NERDTree <CR>
+nnoremap <Leader>2 :NERDTree<CR> <C-w>h :cd ~/Works/yo/modules/tvl_basic/ <CR> :NERDTree <CR>
+nnoremap <Leader>3 :NERDTree<CR> <C-w>h :cd ~/Works/yo/modules/tvl_mobile/ <CR> :NERDTree <CR>
+nnoremap <Leader>4 :NERDTree<CR> <C-w>h :cd ~/Works/yo/themes/ <CR> :NERDTree <CR>
+
+" Autocmd
+" Open Nerdtree on vim opened
+ autocmd VimEnter * NERDTree
+" Lint PHP onSave
+autocmd BufWritePost *.php !php -l %
 " Setup BufWritePost events for rsync yo
 autocmd BufWritePost ~/Works/yo/* silent !~/Scripts/yo_sync_dev.sh
-
-let g:yankring_manual_clipboard_check=1 
