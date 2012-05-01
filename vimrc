@@ -1,13 +1,36 @@
-"Load pathogen
+"Load vundle
+set nocompatible
 filetype off
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" vundle
+Bundle 'gmarik/vundle'
+
+" plugins
+Bundle 'vim-scripts/snipMate'
+Bundle 'vim-scripts/tComment'
+Bundle 'vim-scripts/matchit.zip'
+Bundle 'kien/ctrlp.vim'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'ervandew/supertab'
+Bundle 'Townk/vim-autoclose'
+Bundle 'tpope/vim-fugitive'
+"Bundle 'vim-scripts/YankRing.vim'
+
+" plugin setup
+let g:ctrlp_map = '<C-p>'
+let g:ctrlp_working_path = 2
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 
 "Enable filetype
-filetype on
-filetype indent on
-filetype plugin on
-set nocompatible
+filetype plugin indent on
+
+" Prevent tab complete some file types
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 "Enhance tab completion
 set wildmenu
@@ -52,17 +75,17 @@ set winheight=30
 :set sidescroll=10
 :set scrolljump=10
 
-" hide search hightlight on ESC
+" Disable search hightlight on ESC
 nnoremap <ESC> :noh<CR><ESC>
 
-"Fix arrowkeys problem caused by Autoclose
+" Fix arrowkeys problem caused by Autoclose
 set term=linux
 imap OA <ESC>ki
 imap OB <ESC>ji
 imap OC <ESC>li
 imap OD <ESC>hi
 
-"Tab Control
+" Tab Control
 nnoremap H :tabprev <CR>
 nnoremap L :tabnext <CR>
 
@@ -76,7 +99,6 @@ nnoremap <F5> :NERDTree<CR>
 nnoremap <F6> :w !php -l<CR>
 nnoremap <F7> :!svn diff % > ~/Desktop/%:t.diff<CR>
 nnoremap <F8> :cd %:p:h<CR> :!svn diff . > ~/Desktop/dir.diff<CR>
-nnoremap <D-r> :MRU<CR>
 
 " Setup Shortcuts for cd
 nnoremap <Leader>1 :NERDTree<CR> <C-w>h :cd ~/Works/yo/modules/tvl_info/ <CR> :NERDTree <CR>
